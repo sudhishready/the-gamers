@@ -3,7 +3,10 @@ import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-mono'});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,8 +19,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Gamers - Heads & Tails",
-  description: "Call heads or tails and flip the coin.",
+  title: {
+    default: "The Gamers Hub",
+    template: "%s — The Gamers Hub",
+  },
+  description: "Quick browser games: coin flip, memory, and more.",
 };
 
 export default function RootLayout({
@@ -35,8 +41,8 @@ export default function RootLayout({
         geistSans.variable,
         geistMono.variable,
         "font-mono",
-        jetbrainsMono.variable
-    )}
+        jetbrainsMono.variable,
+      )}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
